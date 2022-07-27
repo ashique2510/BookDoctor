@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<link rel="stylesheet" href="/doctorBooking-properties/css/style.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
+{{!-- Ajax --}}
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+{{!-- Flat picker --}}
+
+{{!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"> --}}
+<link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_red.css">
+
+
+
+{{!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --}}
+  </head>
+  <body>
+
+   
+
+{{!-- 
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
+
+
+  
+  <section class="appoinment section">
+    <div class="container">
+      <div class="row">
+        {{!-- <div class="col-lg-4">
+            <div class="mt-3">
+              <div class="feature-icon mb-3">
+                <i class="icofont-support text-lg"></i>
+              </div>
+               <span class="h3">Call for an Emergency Service!</span>
+                <h2 class="text-color mt-3">+84 789 1256 </h2>
+            </div>
+        </div> --}}
+  
+  
+  {{!--  Booking table !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11111111111!!!!!!!!!!!!1--}}
+  
+  
+        <div class="col-lg-9">
+             <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
+              <h2 class="mb-2 title-color">Book an appoinment</h2>
+              <p class="mb-4">Mollitia dicta commodi est recusandae iste, natus eum asperiores corrupti qui velit . Iste dolorum atque similique praesentium soluta.</p>
+                
+                 <form class="appoinment-form" method="post" id="appFormId" action="{{!-- /appoinmentForm --}}">
+                 
+                 <div class="row">
+                 <div class="col-md-9">
+                      <div class="row ">
+                           <div class="col-lg-6">
+                              <div class="form-group">
+                                <label for="">Department</label>
+                                  <input name="department" id="" type="text" class="form-control" value="{{DoctorDet.[0].docDetails.department}}">
+                              </div>
+                              
+                          </div>
+                          <div class="col-lg-6">
+                              <div class="form-group">
+                                <label for="">Doctor Name</label>
+                                  <input name="doctorName" id="" type="text" class="form-control" value="{{DoctorDet.[0].docDetails.name}}">
+                              </div>
+                          </div>
+                          
+                           <div class="col-lg-6">
+                              <div class="form-group">
+                                <label for="">Date</label>
+                                  <input type="text" name="selctedDate" value="{{AvTimeSlots.docDetails.availableTime.availableDate}}" hidden>
+                                  <input name="date" id="individualDate" type="datetime-local" class="form-control" value="{{AvTimeSlots.docDetails.availableTime.availableDate}}" placeholder="{{AvTimeSlots.docDetails.availableTime.availableDate}}">
+                              </div>
+                              
+                              {{!-- <button class="btn btn-danger btn-sm mb-3" type="button" disabled>
+                             <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                              </button>
+                              <a href="/hospital/appoinmentPage/{{DoctorDet.[0].docDetails._id}}" class="btn btn-outline-danger btn-sm mb-3">check slots</a> --}}
+                          </div>
+                             
+                           <div class="col-lg-6">
+                              <div class="form-group">
+                                <label for="">Name</label>
+                                  <input name="userName" id="name" type="text" class="form-control" value="" placeholder="Your name">
+                              </div>
+                          </div>
+  
+                          <div class="col-lg-6">
+                              <div class="form-group">
+                                <label for="">Phone Number</label>
+                                  <input name="phoneNumber" id="phone" type="Number" class="form-control" value="" placeholder="Phone number">
+                              </div>
+                          </div>
+                          <div class="col-lg-6 mt-4">
+                              <div class="form-group">
+                                <label for="" class="text-danger font-weight-bold">Consultation Fee</label>
+                                <h4 class="text-success" >{{DoctorDet.[0].docDetails.consultationFee}} INR ₹</h4>
+                                <input type="text" name="consultationFee" value="{{DoctorDet.[0].docDetails.consultationFee}}" hidden>
+                                <input type="text" name="doctorID" value="{{DoctorDet.[0].docDetails._id}}" hidden>
+                                <input type="text" name="DocUserName" value="{{DoctorDet.[0].docDetails.username}}" hidden>
+                                <input type="text" name="hospitalName" value="{{DoctorDet.[0].hospitalName}}" hidden>
+
+
+                              </div>
+                          </div>
+                      </div>
+
+
+   <label class=" text-danger font-weight-bold mt-3">Payment Methods</label>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="paymentMethod" id="exampleRadios1" value="Payment by the hospital" checked>
+  <label class="form-check-label" for="exampleRadios1">
+    Payment by the hospital
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="paymentMethod" id="exampleRadios2" value="Online Payment">
+  <label class="form-check-label" for="exampleRadios2">
+    Online Payment
+  </label>
+</div>
+   </div>
+
+<div class="col-md-3">
+<select class="form-select mt-3" name="time" size="16" aria-label="size 16 select example">
+
+  <option class="text-light bg-dark font-weight-bold p-1" selected>{{AvTimeSlots.docDetails.availableTime.availableDate}}</option>
+  <option class="text-light bg-danger font-weight-bold p-1" selected>AVAILABLE TIME</option>
+  {{#if AvTimeSlots.docDetails.availableTime.nine}}
+  <option value="nine">09:00 AM</option>
+  {{/if}}
+  {{#if AvTimeSlots.docDetails.availableTime.nineFifteen}}
+  <option value="nineFifteen">09:15 AM</option>
+  {{/if}}
+  {{#if AvTimeSlots.docDetails.availableTime.nineThirty}}
+  <option value="nineThirty">09:30 AM</option>
+  {{/if}}
+  {{#if AvTimeSlots.docDetails.availableTime.nineFourtyFive}}
+  <option value="nineFourtyFive">09:45 AM</option>
+  {{/if}}
+  {{#if AvTimeSlots.docDetails.availableTime.ten}}
+  <option value="ten">10:00 AM</option>
+  {{/if}}
+  {{#if AvTimeSlots.docDetails.availableTime.tenFifty}}
+  <option value="tenFifty">10:15 AM</option>
+  {{/if}}
+  {{#if AvTimeSlots.docDetails.availableTime.tenThirty}}
+  <option value="tenThirty">10:30 AM</option>
+  {{/if}}
+  {{#if AvTimeSlots.docDetails.availableTime.tenFourtyFive}}
+  <option value="tenFourtyFive">10:45 AM</option>
+  {{/if}}
+  {{#if AvTimeSlots.docDetails.availableTime.eleven}}
+  <option value="eleven">11:00 AM</option>
+  {{/if}}
+  {{#if AvTimeSlots.docDetails.availableTime.elevenFifty}}
+  <option value="elevenFifty">11:15 AM</option>
+  {{/if}}
+  {{#if AvTimeSlots.docDetails.availableTime.elevenThirty}}
+  <option value="elevenThirty">11:30 AM</option>
+  {{/if}}
+  {{#if AvTimeSlots.docDetails.availableTime.elevenFourtyFive}}
+  <option value="elevenFourtyFive">11:45 AM</option>
+  {{/if}}
+  {{#if AvTimeSlots.docDetails.availableTime.twelveThirty}}
+  <option value="twelveThirty">12:30 PM</option>
+  {{/if}}
+  {{#if AvTimeSlots.docDetails.availableTime.twelveFourtyFive}}
+  <option value="twelveFourtyFive">12:45 PM</option>
+  {{/if}}
+  {{#if AvTimeSlots.docDetails.availableTime.one}}
+  <option value="one">01:00 PM</option>
+  {{/if}}
+   
+{{#if AvTimeSlots.docDetails.availableTime.oneFifty}}
+  <option value="oneFifty">01:15 PM</option>
+  {{/if}}
+  {{#if AvTimeSlots.docDetails.availableTime.oneThirty}}
+  <option value="oneThirty">01:30 PM</option>
+  {{/if}}
+  {{#if AvTimeSlots.docDetails.availableTime.oneFourtyFive}}
+  <option value="oneFourtyFive">01:45 PM</option>
+  {{/if}}
+  {{#if AvTimeSlots.docDetails.availableTime.two}}
+  <option value="two">02:00 PM</option>
+  {{/if}}
+  {{#if AvTimeSlots.docDetails.availableTime.twoThirty}}
+  <option value="twoThirty">02:30 PM</option>
+  {{/if}}
+  {{#if AvTimeSlots.docDetails.availableTime.three}}
+  <option value="three">03:00 PM</option>
+  {{/if}}
+  {{#if AvTimeSlots.docDetails.availableTime.threeThirty}}
+  <option value="threeThirty">03:30 PM</option>
+  {{/if}}
+  {{#if AvTimeSlots.docDetails.availableTime.four}}
+  <option value="four">04:00 PM</option>
+  {{/if}}
+  {{#if AvTimeSlots.docDetails.availableTime.fourThirty}}
+  <option value="fourThirty">04:30 PM</option>
+  {{/if}}
+
+
+</select>
+
+</div>
+                     <div class="ml-3 ">
+                            <button type="submit" class="btn btn-danger btn-rounded p-3">Make An Appoinment</button>
+                    </div>
+                    </div>
+                  </form>
+              </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+
+{{!-- Razorpay library --}}
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+{{!-- Ajax Script --}}
+
+<script>
+
+//appoinment form submission
+
+$("#appFormId").submit((e)=>{
+        e.preventDefault()
+        $.ajax({
+          url:'/appoinmentForm',
+          method:'post',
+          data:$('#appFormId').serialize(),
+          success:(response)=>{
+            if(response.payByHosSuccess){
+              
+          //$('#exampleModalCenter').load(location.href+"#exampleModalCenter")
+          $('#exampleModalCenter').modal('show'); 
+
+
+            }else{
+
+razorpayPayment(response);
+
+            }
+          }
+        })
+      })
+
+//!!!!!!!!!!!!!!!!!!!!!!
+
+function razorpayPayment(order){
+
+var options = {
+    "key": "rzp_test_RzoK1xHoe91LIp", // Enter the Key ID generated from the Dashboard
+    "amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Doctor Booking",
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        
+//send to server if success (this function called below)
+verifyPayment(response,order)
+
+    },
+    "prefill": {
+        "name": "Gaurav Kumar",
+        "email": "gaurav.kumar@example.com",
+        "contact": "9999999999"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+
+var rzp1 = new Razorpay(options);
+  rzp1.open();
+
+}
+
+
+//send to server if success
+function verifyPayment(payment,order){
+
+$.ajax({
+    url:'/verify-payment',
+    data:{
+          payment,
+          order
+         },
+         method:'post'
+})
+}
+
+</script>
+
+
+<script>
+
+//  get individual date based available time slot
+
+$("#individualDate").change(function(){
+
+    $.ajax({
+      url:'/getIndDateandTime',
+      method:"post",
+      data:$('#appFormId').serialize(),
+       success:(response)=>{
+        if(response){
+          //$('#individualDate').load(location.href+"#individualDate")
+                   location.reload()
+
+        }
+       }
+      
+      })
+    })
+        
+</script>
+
+
+
+
+{{!-- Modal !!!!!!!!!!!1 --}}
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        {{!-- <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5> --}}
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+
+	<section class="section confirmation">
+	  <div class="container">
+		<div class="row justify-content-center">
+		  <div class="col-lg-8">
+			  <div class="confirmation-content text-center">
+				
+				<i class="fa fa-check-circle" style="font-size:68px;color:red"></i>
+				  <h2 class="mt-3 mb-4">Thank you for your appoinment</h2>
+				  <p>We will contact with you soon.</p>
+			  </div>
+		  </div>
+		</div>
+		<div class="d-flex justify-content-center mt-2">
+		  
+		<a href="/"><button  class="btn btn-danger mr-4"><i class="fa fa-home"></i>Go Home</button></a>
+		<a href="/userProfile"><button class="btn btn-danger"><i class="fa fa-bars"></i> Appoinment Details</button></a>
+		</div>
+	  </div>
+	</section>
+	
+
+
+      </div>
+      {{!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> --}}
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- footer Start -->
+<footer class="footer section gray-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 mr-auto col-sm-6">
+				<div class="widget mb-5 mb-lg-0">
+					<div class="logo mb-4">
+						<img src="images/logo.png" alt="" class="img-fluid">
+					</div>
+					<p>Tempora dolorem voluptatum nam vero assumenda voluptate, facilis ad eos obcaecati tenetur veritatis eveniet distinctio possimus.</p>
+
+					<ul class="list-inline footer-socials mt-4">
+						<li class="list-inline-item"><a href="https://www.facebook.com/themefisher"><i class="icofont-facebook"></i></a></li>
+						<li class="list-inline-item"><a href="https://twitter.com/themefisher"><i class="icofont-twitter"></i></a></li>
+						<li class="list-inline-item"><a href="https://www.pinterest.com/themefisher/"><i class="icofont-linkedin"></i></a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-lg-2 col-md-6 col-sm-6">
+				<div class="widget mb-5 mb-lg-0">
+					<h4 class="text-capitalize mb-3">Department</h4>
+					<div class="divider mb-4"></div>
+
+					<ul class="list-unstyled footer-menu lh-35">
+						<li><a href="#">Surgery </a></li>
+						<li><a href="#">Wome's Health</a></li>
+						<li><a href="#">Radiology</a></li>
+						<li><a href="#">Cardioc</a></li>
+						<li><a href="#">Medicine</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-lg-2 col-md-6 col-sm-6">
+				<div class="widget mb-5 mb-lg-0">
+					<h4 class="text-capitalize mb-3">Support</h4>
+					<div class="divider mb-4"></div>
+
+					<ul class="list-unstyled footer-menu lh-35">
+						<li><a href="#">Terms & Conditions</a></li>
+						<li><a href="#">Privacy Policy</a></li>
+						<li><a href="#">Company Support </a></li>
+						<li><a href="#">FAQuestions</a></li>
+						<li><a href="#">Company Licence</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-lg-3 col-md-6 col-sm-6">
+				<div class="widget widget-contact mb-5 mb-lg-0">
+					<h4 class="text-capitalize mb-3">Get in Touch</h4>
+					<div class="divider mb-4"></div>
+
+					<div class="footer-contact-block mb-4">
+						<div class="icon d-flex align-items-center">
+							<i class="icofont-email mr-3"></i>
+							<span class="h6 mb-0">Support Available for 24/7</span>
+						</div>
+						<h4 class="mt-2"><a href="tel:+23-345-67890">Support@email.com</a></h4>
+					</div>
+
+					<div class="footer-contact-block">
+						<div class="icon d-flex align-items-center">
+							<i class="icofont-support mr-3"></i>
+							<span class="h6 mb-0">Mon to Fri : 08:30 - 18:00</span>
+						</div>
+						<h4 class="mt-2"><a href="tel:+23-345-67890">+23-456-6588</a></h4>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer-btm py-4 mt-5">
+			<div class="row align-items-center justify-content-between">
+				<div class="col-lg-6">
+					<div class="copyright">
+						&copy; Copyright Reserved to <span class="text-color">Novena</span> by <a href="https://themefisher.com/" target="_blank">Themefisher</a>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="subscribe-form text-lg-right mt-5 mt-lg-0">
+						<form action="#" class="subscribe">
+							<input type="text" class="form-control" placeholder="Your Email address">
+							<a href="#" class="btn btn-main-2 btn-round-full">Subscribe</a>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-4">
+					<a class="backtop js-scroll-trigger" href="#top">
+						<i class="icofont-long-arrow-up"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+   
+
+
+{{!-- Flat picker --}}
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script>
+
+config={
+dateFormat: "d.m.Y",
+ minDate: "today",
+}
+
+flatpickr("input[type=datetime-local]",config);
+
+</script>
+
+<script src="/doctorBooking-properties/js/script.js"></script>
+
+
+ <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    {{!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ 
+ 
+
+  </body>
+</html>
+

@@ -1,0 +1,39 @@
+
+
+
+#form2Example11-error,#form2Example22-error,#form3Example1cg-error,#form3Example3cg-error,#form3Example4cg-error,#form3Example4cdg-error,#password-error,#conpassword-error{
+    color: red;
+}
+
+#admin-table-container{
+    width:1040px;
+}
+.odd{
+    color: rgb(201, 32, 32);
+    font-weight: normal;
+    /* font-size: large; */
+}
+.even{
+    color: rgb(201, 32, 32);
+    font-weight: normal;
+    /* font-size: large; */
+}
+
+#dropdownMenuButton{
+
+    /* margin-left: 361px; */
+    background-color:#f9fbff;
+    color: #535353;
+}
+
+#dropdowndButtonUser{
+    background-color: #8fc6fa;
+}
+
+.form-check{
+    margin-top: 20px;
+}
+
+#bookingDet{
+    margin-left: 250px;
+}

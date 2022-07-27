@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+{{!-- Ajax --}}
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+</head>
+<body>
+    <h1>hiiiiiiiiiii</h1>
+
+
+
+ <form class="appoinment-form" method="post" id="appFormId" action="{{!-- /appoinmentForm --}}">
+
+
+                         <div class="col-lg-6">
+                              <div class="form-group">
+                                <label for="">Date</label>
+                                  <input name="date" id="individualDate" type="datetime-local" class="form-control" value="" placeholder="kkkk">
+                              </div>
+
+ </form>
+
+
+<form id="filter" method="post" class="filter-form">
+
+ <article class="filter-group">
+                        <header class="card-header">
+                               
+                                <h6 class="title">SPECIALITY </h6>
+                          
+                        </header>
+                        <div class="filter-content collapse show" id="collapse_2" style="">
+                            <div class="card-body">
+
+                                 <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value="Cardiologist"
+                                        name="speciality">
+                                    <div class="custom-control-label">Cardiologist
+                                    </div>
+                                </label>
+                                 <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value="Dermatologists"
+                                        name="speciality">
+                                    <div class="custom-control-label">Dermatologists
+                                    </div>
+                                </label>
+                                 <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value="Radiologists"
+                                        name="speciality">
+                                    <div class="custom-control-label">Radiologists
+                                    </div>
+                                </label>
+                                 
+
+
+                            </div>
+                        </div>
+                    </article>
+
+</form>
+
+
+
+{{!-- Filter Section Ajax --}}
+
+
+<script>
+
+$('input[name=speciality]').change(function(){
+    console.log('hiiiiiiiiiii')
+    $.ajax({
+      url:'/Filter-Test',
+      method:"post",
+      data:$('#filter').serialize(),
+       success:(response)=>{
+        if(response){
+
+        }
+       }
+      
+      })
+    })
+        
+</script>
+
+
+<script>
+
+//  get individual date based available time slot
+
+$("#individualDate").change(function(){
+
+    $.ajax({
+      url:'/Test',
+      method:"post",
+      data:$('#appFormId').serialize(),
+       success:(response)=>{
+        if(response){
+          $('#individualDate').load(location.href+"#individualDate")
+        }
+       }
+      
+      })
+    })
+        
+</script>
+
+
+
+
+
+
+</body>
+</html>

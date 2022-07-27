@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheet/userProfile.css">
+    <script src="/js/userProfile.js"></script>
+
+    {{!--  Table link --}}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+
+{{!-- Cancel button link --}}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+{{!--  --}}
+
+
+
+
+
+
+</head>
+<body>
+    
+
+
+<div class="container-xl px-4 mt-4">
+   
+    <hr class="mt-0 mb-4">
+    <div class="row">
+        <div class="col-xl-4">
+            <!-- Profile picture card-->
+            <div class="card mb-4 mb-xl-0">
+                <div class="card-header bg-info text-center">Profile Picture</div>
+                <div class="card-body text-center">
+
+                  {{!--Profile picture upload section  --}}
+
+<form action="/UserImgUpload/{{UserDet.[0]._id}}" enctype="multipart/form-data" method="post">
+
+<div class="profile-pic" onclick="displayBtn()">
+  <label class="-label" for="file">
+    <span class="glyphicon glyphicon-camera"></span>
+    <span>Change Image</span>
+  </label>
+  <input id="file" type="file" onchange="loadFile(event)" name="multi-files" accept='image/*' multiple/>
+  <img src="/images/userImg/{{UserDet.[0].img.[0].filename}}" id="output" width="200" />
+</div>
+
+
+                    <!-- Profile picture upload button-->
+     <button class="btn btn-info" id="uploadImageBtn" type="submit">Upload new image</button>
+
+ </form>
+                </div>
+            
+
+
+ <div class="card mt-3">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0"><i class='fas fa-user-shield' style='font-size:28px;color:green'></i>
+
+                    <circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>Age</h6>
+                    <span class="text-secondary">{{UserDet.[0].age}}</span>
+                  </li>
+
+
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0"><i class='fas fa-restroom' style='font-size:28px;color:green'></i>
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>Gender</h6>
+                    <span class="text-secondary">{{UserDet.[0].gender}}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0"><i class='fas fa-ruler-vertical' style='font-size:28px;color:green'></i>
+
+                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>Hight</h6>
+                    <span class="text-secondary">{{UserDet.[0].hight}}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0"><i class='far fa-hdd' style='font-size:28px;color:green'></i>
+
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>Weight</h6>
+                    <span class="text-secondary">{{UserDet.[0].weight}}</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0"><i class="fa fa-thermometer" style="font-size:28px;color:red"></i>
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>Blood group</h6>
+                    <span class="text-secondary">{{UserDet.[0].Bloodgroup}}</span>
+                  </li>
+                </ul>
+              </div>
+
+
+            </div>
+
+   {{!-- <p class="mt-4 mb-2">Download your prescription here.</p>
+
+            <a href="/downloadPrescription" class="text-success"> <button type="button" class="btn btn-outline-success btn-lg btn-block">Download Prescription</button></a> --}}
+
+
+</div>
+
+
+
+{{!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --}}
+ 
+
+        <div class="col-xl-8">
+            <!-- Account details card-->
+            <div class="card mb-4">
+                <div class="card-header bg-info text-center">Account Details</div>
+                <div class="card-body">
+                    <form method="post" action="/updateUserProfile/{{UserDet.[0]._id}}">
+                       
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputFirstName">Your Name</label>
+                                <input class="form-control" id="inputFirstName" name="name" type="text"  value="{{UserDet.[0].name}}">
+                            </div>
+                            <!-- Form Group (last name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputEmailAddress">Email address</label>
+                            <input class="form-control" id="inputEmailAddress" type="email" name="email" value="{{UserDet.[0].email}}">
+                            </div>
+                        </div>
+                        <!-- Form Row        -->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (organization name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputOrgName">Address</label>
+                                <input class="form-control" id="inputOrgName" type="text" name="address" placeholder="Enter your Address" value="{{UserDet.[0].address}}">
+                            </div>
+                            <!-- Form Group (location)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputLocation">Location</label>
+                                <input class="form-control" id="inputLocation" type="text" name="location" placeholder="Enter your location" value="{{UserDet.[0].location}}">
+                            </div>
+                        </div>
+                        
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (phone number)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputPhone">Phone number</label>
+                                <input class="form-control" id="inputPhone" type="number" name="phoneNumber"  value="{{UserDet.[0].phoneNumber}}">
+                            </div>
+                            <!-- Form Group (birthday)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputBirthday">Age</label>
+                                <input class="form-control" id="inputBirthday" type="text" name="age" placeholder="Enter your Age" value="{{UserDet.[0].age}}">
+                            </div>
+                        </div>
+
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (phone number)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputPhone">Gender</label>
+                                <input class="form-control" id="inputPhone" type="text" name="gender"  value="{{UserDet.[0].gender}}">
+                            </div>
+                            <!-- Form Group (birthday)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputBirthday">Hight</label>
+                                <input class="form-control" id="inputBirthday" type="text" name="hight" placeholder="" value="{{UserDet.[0].hight}}">
+                            </div>
+                        </div>
+
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (phone number)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputPhone">Weight</label>
+                                <input class="form-control" id="inputPhone" type="text" name="weight"  value="{{UserDet.[0].weight}}">
+                            </div>
+                            <!-- Form Group (birthday)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputBirthday">Blood group</label>
+                                <input class="form-control" id="inputBirthday" type="text" name="Bloodgroup" placeholder="" value="{{UserDet.[0].Bloodgroup}}">
+                            </div>
+                        </div>
+                        <!-- Save changes button-->
+                     <button type="submit"  class="btn btn-info btn-rounded text-dark" data-mdb-ripple-color="dark">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+{{!-- !!!!!!!!!!!!!!!!!!!!!!!!! --}}
+        
+
+<div class="container mt-5">
+    <h4  class="text-danger font-weight-bold ">Appoinment Details</h4>
+
+        <br>
+    
+<table id="Table1" class="table table-bordered" style="width:100%">
+        <thead  class="thead" id="userTablehead">
+            <tr>
+                <th scope="col">No:</th>
+                <th scope="col">Name of Doctor</th>
+                <th scope="col">Speciality</th>
+                <th scope="col">Fee</th>
+                <th scope="col">Payment Method</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Status</th>
+                <th scope="col">Cancel</th>
+                <th scope="col">Download Prescription</th>
+
+                
+            </tr>
+        </thead>
+        <tbody>
+          
+          {{#each UserDet}}
+
+            <tr>
+                <th scope="row">{{@index}}</th>
+               <td>{{this.appoinmentForm.doctorName}}</td>
+               <td>{{this.appoinmentForm.department}}</td>
+              <td>{{this.appoinmentForm.consultationFee}}</td>
+               <td>{{this.appoinmentForm.paymentMethod}}</td>
+               <td>{{this.appoinmentForm.selctedDate}}</td>
+               <td>{{this.appoinmentForm.time}}</td>
+               <td>
+                <button style="font-size:20px;color: forestgreen;">Confirmed <i class="fa fa-check-circle"></i></button>
+               </td>
+               <td>
+                    <a href="/cancelBooking?_id={{this.appoinmentForm._id}}&time={{this.appoinmentForm.time}}&doctorID={{this.appoinmentForm.doctorID}}&selctedDate={{this.appoinmentForm.selctedDate}}" class="ml-4" onclick="return confirm('Do you want to Cancel')">
+                    <i class="material-icons mt-3" style="font-size:35px;color:red">cancel</i>
+                    </a>
+               </td>
+               <td>
+               <a href="/downloadPrescription?appFormId={{this.appoinmentForm._id}}&time={{this.appoinmentForm.time}}&userID={{this._id}}&selctedDate={{this.appoinmentForm.selctedDate}}" class="btn btn-info btn-md mt-3 ml-2">
+         <i class="fa fa-download" aria-hidden="true"></i>Download 
+               </a>
+               </td>
+               
+            </tr>
+           
+            {{/each}}
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <th scope="col">No:</th>
+                <th scope="col">Name of Doctor</th>
+                <th scope="col">Speciality</th>
+                <th scope="col">Fee</th>
+                <th scope="col">Payment Method</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Status</th>
+                <th scope="col">Cancel</th>
+                <th scope="col">Download Prescription</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+
+{{!-- !!!!!!!!!!!!!!!! --}}
+
+
+
+{{!--  Table link --}}
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
+
+<script>
+ $(document).ready( function () {
+  
+  
+    $('#Table1').wrap('<div id="hide" style="display:none"/>');
+   
+         $('#hide').css( 'display', 'block' );
+     } );
+      
+
+  var table = $('#Table1').DataTable();
+
+</script>
+
+
+</body>
+</html>

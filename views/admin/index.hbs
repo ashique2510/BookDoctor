@@ -1,0 +1,543 @@
+
+
+
+   <body class="dashboard dashboard_1">
+      <div class="full_container">
+         <div class="inner_container">
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+               <div class="sidebar_blog_1">
+                  <div class="sidebar-header">
+                     <div class="logo_section">
+                        <a href="index.html"><img class="logo_icon img-responsive" src="/admin properties/images/logo/logo_icon.png" alt="#" /></a>
+                     </div>
+                  </div>
+                  <div class="sidebar_user_info">
+                     <div class="icon_setting"></div>
+                     <div class="user_profle_side">
+                        <div class="user_img"><img class="img-responsive" src="/admin properties/images/layout_img/user_img.jpg" alt="#" /></div>
+                        <div class="user_info">
+                           <h6>John David</h6>
+                           <p><span class="online_animation"></span> Online</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="sidebar_blog_2">
+                  <h4>General</h4>
+                  <ul class="list-unstyled components">
+                     <li><a href="widgets.html"><i class="fa fa-clock-o orange_color"></i> <span>Dashboard</span></a></li>
+
+                     <li><a href="widgets.html"><i class="fa fa-clock-o orange_color"></i> <span>Aproved Hospital</span></a></li>
+                     
+                     <li><a href="widgets.html"><i class="fa fa-clock-o orange_color"></i> <span>Rejected Hospital</span></a></li>
+
+                  </ul>
+               </div>
+            </nav>
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+               <!-- topbar -->
+               <div class="topbar">
+                  <nav class="navbar navbar-expand-lg navbar-light">
+                     <div class="full">
+                        <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                        <div class="logo_section">
+                           <h2 class="text-light mt-4 ml-5">Admin Panel</h2>
+                        </div>
+                        <div class="right_topbar">
+                           <div class="icon_info">
+                             
+                           </div>
+                        </div>
+                     </div>
+                  </nav>
+               </div>
+
+
+
+
+
+{{!-- Hospital Add sections  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!--}}
+
+
+
+
+<section>
+    <div class="container mt-5" id="admin-table-container" >
+<div><h2 class="mt-5">Hospital Section </h2></div>
+
+<div><h3 class="mt-5 mb-5 text-danger">Hospitals Pending Registration Request</h3></div>
+
+
+<div class="row">  {{!-- (18) --}}
+
+
+
+
+        <table class="table table-bordered mt-5 display" id="userSearch">  
+
+
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">No:</th>
+      <th scope="col">Name</th>
+      <th scope="col">State</th>
+      <th scope="col">Address</th>
+      <th scope="col">Building No:</th>
+      <th scope="col">Field</th>
+      <th scope="col">Hos Id</th>
+      {{!-- <th scope="col">Email</th> --}}
+      <th scope="col">Ph No:</th>
+      <th scope="col">Aprove</th>
+      <th scope="col">Reject</th>
+
+     
+    </tr>
+  </thead>
+
+
+  <tbody>
+
+{{!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11--}}
+
+{{#each response}}
+
+
+    <tr>
+      <th scope="row">{{inc @index}}</th>
+      <td>{{this.hospitalName}}</td>
+      <td>{{this.state}}</td>
+     <td>{{this.streetAddress}}</td>
+     <td>{{this.buildingNo}}</td>
+     <td>{{this.field}}</td>
+     <td>{{this.hospitalId}}</td>
+     {{!-- <td>{{this.email}}</td> --}}
+     <td>{{this.phoneNumber}}</td>
+{{!-- <td><button type="button" class="btn btn-success rounded-pill">Aprove</button> --}}
+
+<td>
+   <a href="/hospital/aprove-Hospital/{{this._id}}" class="btn btn-success rounded-pill" > Aprove</a>
+
+</td>
+    <td>
+    <a href="/admin/reject-Hospital/{{this._id}}" class="btn btn-danger rounded-pill" onclick="return confirm('Do you want to reject  {{this.hospitalName}} ')">Reject </a>
+
+      </td>  
+      
+    </tr>   
+{{/each}}
+
+  </tbody>
+</table>
+</div>
+   </div>
+
+{{!-- aproved and rejected hospital list --}}
+
+<div class="mt-4">
+   <p class="h5 text-success"><strong> Aproved hospital details</strong>
+ <a href="/admin/aproveBtn"><button type="button"  class="btn btn-success btn-rounded ml-5">Click Here</button></a></p>
+</div>
+
+<div class="mt-4">
+   <p class="h5 text-danger"><strong> Rejected hospital details</strong>
+   <button type="button" class="btn btn-danger btn-rounded ml-5">Click Here</button></p>
+
+</div>
+
+</section>
+   <hr class="mt-5 mb-5">
+
+
+{{!-- Add Department  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!--}}
+
+
+
+<section>
+    <div class="container mt-5" id="admin-table-container" >
+<div><h2 class="mt-5 mb-5">Department Section </h2></div>
+
+
+<div class="mt-4 mb-4">
+   <p class="h5 text-success "><strong> Add Departments </strong>
+ {{!-- <a href="/admin/aprn"><button type="button"  class="btn btn-success btn-rounded ml-5">Click Here</button></a></p> --}}
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
+  Click Here
+</button>
+</div>
+
+
+<div class="row">  {{!-- (18) --}}
+
+
+        <table class="table table-bordered mt-5 display" id="DepartmentTable">  
+
+
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">No:</th>
+      <th scope="col">Departments</th>
+      <th scope="col">Image</th>
+      <th scope="col">Delete</th>
+
+      
+    </tr>
+  </thead>
+
+
+  <tbody>
+
+{{!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11--}}
+
+{{#each Depdata}}
+
+
+    <tr>
+      <th scope="row">{{inc @index}}</th>
+      <td>{{this.departments.departmentName}}</td>
+      <td><img src="/images/departmentImg/{{this.departments.img.[0].filename}}" width="100" alt=""></td>
+      <td>
+                  <a href="/admin/delete-cat" class="btn btn-danger" onclick="return confirm('Do you want to delete{{this.name}} ')"> Delete </a>
+
+      </td>
+    </tr>   
+{{/each}}
+
+  </tbody>
+</table>
+</div>
+   </div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+{{!-- form --}}
+
+<form method="post" action="/admin/addDepartment" enctype="multipart/form-data" >
+
+  <div class="form-group">
+    <label for="formGroupExampleInput">Department Name</label>
+    <input type="text" class="form-control" name="departmentName" id="formGroupExampleInput" placeholder="Department Name">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">Description</label>
+    <input type="text" class="form-control" name="description" id="formGroupExampleInput2" placeholder="Description">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlFile1">Upload Image</label>
+          <input type="file" name="multi-files" accept='image/*' multiple>
+  </div>
+        <button type="submit" class="btn btn-success mt-3">Add Details</button>
+
+      </form>
+
+
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+{{!-- User Details  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!--}}
+
+
+
+<section >
+    <div class="container mt-5" id="admin-table-conModal tainer" >
+<div><h2 class="mt-5">User Section </h2></div>
+
+<div><h3 class="mt-5 mb-5 text-primary">User Registration Details </h3></div>
+
+
+<div class="row">  {{!-- (18) --}}
+
+
+
+
+        <table class="table table-bordered mt-5 display text-primary font-weight-bold" id="Table2">  
+
+      
+
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">No:</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Block</th>
+     
+     
+    </tr>
+  </thead>
+
+
+  <tbody>
+
+{{!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11--}}
+
+{{#each userData}}
+
+
+    <tr>
+      <th scope="row">{{@index}}</th>
+      <td>{{this.name}}</td>
+      <td>{{this.email}}</td>
+     <td>{{this.phoneNumber}}</td>
+    <td><button type="button" class="btn btn-danger rounded-pill">Block</button></td>  
+      
+      
+    </tr>
+
+
+
+{{!-- Modal --}}
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal{{this._id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+
+                  {{!-- Categories add box --}}
+
+<form class="form-inline mb-5 mt-5 " method="post" action="/admin/update-category/{{this._id}}"  >
+ 
+  <div class="form-group mx-sm-3 mb-2">
+    {{!-- <label for="inputPassword2" class="sr-only">Password</label> --}}
+    <input type="text" class="form-control" value="{{this.categoryName}}" name="NameOfCategory" id="" placeholder="Update categories">
+  </div>
+  <button type="submit"  class="btn btn-primary mb-2">Update Categories</button>
+</form>
+
+        
+      </div>
+      <div class="modal-footer">
+
+
+         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        {{!-- <button type="button" class="btn btn-primary">Save changes</button>  --}}
+
+      </div>
+    </div>
+  </div>
+</div>
+   
+{{/each}}
+
+  </tbody>
+</table>
+</div>
+   </div>
+</section>
+
+
+
+
+
+
+
+
+
+{{!--Add category table Table  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11--}}
+  
+
+
+
+
+
+<div><h1 class="mt-5"></h1></div>
+
+<section>
+    <div class="container" id="admin-table-container" >
+<div><h3 class="mt-5">Categories Section </h3></div>
+
+<div class="row">  {{!-- (18) --}}
+
+
+
+ {{!-- Categories add box --}}
+
+<form class="form-inline mb-5 mt-5 " method="post" action="/admin/addCategory"  >
+  {{!-- <div class="form-group mb-2">
+    <label for="staticEmail2" class="sr-only">Email</label>
+    <input type="text" readonly class="form-control-plaintext" id="staticEmail2">
+  </div> --}}
+  <div class="form-group mx-sm-3 mb-2">
+    {{!-- <label for="inputPassword2" class="sr-only">Password</label> --}}
+    <input type="text" class="form-control" name="NameOfCategory" id="inputPassword2" placeholder="add categories">
+  </div>
+  <button type="submit"  class="btn btn-primary mb-2">Add Categories</button>
+</form>
+
+</div>
+
+        <table class="table mt-5 display" id="Table3">  
+
+
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">No:</th>
+      {{!-- <th scope="col">_id</th> --}}
+      <th scope="col">Categories</th>
+      {{!-- <th scope="col"></th> --}}
+      <th>Options</th>
+      {{!-- <th scope="col">Password</th> --}}
+      {{!-- <th scope="col">Price</th> --}}
+      {{!-- <th>Image</th> --}}
+
+    </tr>
+  </thead>
+
+
+  <tbody>
+
+{{!--(17) loop --}}
+
+{{#each datas.category}}
+
+    <tr>
+      <th scope="row">{{@index}}</th>
+      {{!-- <td>{{this._id}}</td> --}}
+      <td>{{this.categoryName}}</td>
+      {{!-- <td>{{this.email}}</td>
+      <td>{{this.password}}</td>
+      <td>{{this.price}}</td> --}}
+
+      
+      <td>
+
+         {{!-- modal button --}}
+
+<button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{this._id}}">
+  Update
+</button>
+
+         <a href="/admin/delete-category/{{this._id}}" class="btn btn-danger" onclick="return confirm('Do you want to delete{{this.name}} ')"> Delete </a>
+         
+         </td>
+      
+    </tr>
+
+
+
+{{!-- Modal --}}
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal{{this._id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+
+                  {{!-- Categories add box --}}
+
+<form class="form-inline mb-5 mt-5 " method="post" action="/admin/update-category/{{this._id}}"  >
+ 
+  <div class="form-group mx-sm-3 mb-2">
+    {{!-- <label for="inputPassword2" class="sr-only">Password</label> --}}
+    <input type="text" class="form-control" value="{{this.categoryName}}" name="NameOfCategory" id="" placeholder="Update categories">
+  </div>
+  <button type="submit"  class="btn btn-primary mb-2">Update Categories</button>
+</form>
+
+        
+      </div>
+      <div class="modal-footer">
+
+
+         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        {{!-- <button type="button" class="btn btn-primary">Save changes</button>  --}}
+
+      </div>
+    </div>
+  </div>
+</div>
+   
+{{/each}}
+
+  </tbody>
+</table>
+
+   </div>
+</section>
+
+
+
+
+<script>
+    $(document).ready(function () {
+    $('#DepartmentTable').DataTable();
+});
+</script>
+
+
+<script>
+    $(document).ready(function () {
+    $('#userSearch').DataTable();
+});
+</script>
+
+
+<script>
+    $(document).ready(function () {
+    $('#Table2').DataTable();
+});
+</script>
+
+
+<script>
+    $(document).ready(function () {
+    $('#Table3').DataTable();
+});
+</script>
+
+
+
+
+
+
+
+
+            </div>
+         </div>
+      </div>
+    

@@ -1,0 +1,476 @@
+
+<body id="top">
+
+
+
+<section class="page-title bg-1">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+          <span class="text-white">All Doctors</span>
+          <h1 class="text-capitalize mb-5 text-lg">Specalized doctors</h1>
+
+          <!-- <ul class="list-inline breadcumb-nav">
+            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+            <li class="list-inline-item"><span class="text-white">/</span></li>
+            <li class="list-inline-item"><a href="#" class="text-white-50">All Doctors</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- portfolio -->
+<section class="section doctors">
+  <div class="container">
+  	  <div class="row justify-content-center">
+             <div class="col-lg-6 text-center">
+                <div class="section-title">
+                    <h2>Doctors</h2>
+                    <div class="divider mx-auto my-4"></div>
+                    <p>We provide a wide range of creative services adipisicing elit. Autem maxime rem modi eaque, voluptate. Beatae officiis neque </p>
+                </div>
+            </div>
+        </div>
+
+
+<form id="filter" method="post" class="filter-form">
+
+
+      <div class="col-12 text-center  mb-5">
+	        <div class="btn-group btn-group-toggle" >
+	          <label class="btn active"><a class="allDepartment" href="/hospital/DoctorsList/{{DoctorData.[0]._id}}">
+	            <input type="radio" name="shuffle-filter" value="all" checked="checked" />All Department
+	          </a></label>
+	          <label class="btn ">
+	            <input type="radio" name="shuffle-filter" value="cat1" />Services
+	          </label>
+	          <label class="btn">
+	            <input type="radio" name="ConsultationType" value="Tele Consultation" />Tele Consultation
+	          </label>
+	          <label class="btn">
+	            <input type="radio" name="ConsultationType" value="Video Consultation" />Video Consultation
+	          </label>
+	          <label class="btn">
+	            <input type="radio" name="shuffle-filter" value="cat4" />Online Pharmacy
+	          </label>
+	           <label class="btn">
+	            <input type="radio" name="shuffle-filter" value="cat5" />Contact
+	          </label>
+	          {{!-- <label class="btn">
+	            <input type="radio" name="shuffle-filter" value="cat6" />Traumatology
+	          </label> --}}
+	        </div>
+      </div>
+
+{{!-- Filter box start !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --}}
+
+<div class="row">
+
+<div class="col-md-3">
+
+
+                <div class="card">
+                    
+                     <!-- filter-group  .// -->
+                    <article class="filter-group">
+                        <header class="card-header">
+                               
+                                <h6 class="title">SPECIALITY </h6>
+                          
+                        </header>
+                        <div class="filter-content collapse show" id="collapse_2" style="">
+                            <div class="card-body">
+
+                                 <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value="Cardiologist"
+                                        name="department">
+                                    <div class="custom-control-label">Cardiologist
+                                    </div>
+                                </label>
+                                 <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value="Dermatologists"
+                                        name="department">
+                                    <div class="custom-control-label">Dermatologists
+                                    </div>
+                                </label>
+                                 <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value="Radiologists"
+                                        name="department">
+                                    <div class="custom-control-label">Radiologists
+                                    </div>
+                                </label>
+                                 <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value="Oncologists"
+                                        name="department">
+                                    <div class="custom-control-label">Oncologists
+                                    </div>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value="Neurologists"
+                                        name="department">
+                                    <div class="custom-control-label">Neurologists
+                                    </div>
+                                </label>
+								<label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value="Endocrinologists"
+                                        name="department">
+                                    <div class="custom-control-label">Endocrinologists
+                                    </div>
+                                </label>
+								<label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value="Anesthesiologists"
+                                        name="department">
+                                    <div class="custom-control-label">Anesthesiologists
+                                    </div>
+                                </label>
+								<label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value="Medical Geneticists"
+                                        name="department">
+                                    <div class="custom-control-label">Medical Geneticists
+                                    </div>
+                                </label>
+								<label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value="PhysiciansFamily"
+                                        name="department">
+                                    <div class="custom-control-label">PhysiciansFamily
+                                    </div>
+                                </label>
+								<label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value="Allergists/Immunologists"
+                                        name="department">
+                                    <div class="custom-control-label">Allergists/Immunologists
+                                    </div>
+                                </label>
+								<label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value="Sports Medicine Specialists"
+                                        name="department">
+                                    <div class="custom-control-label">Sports Medicine Specialists
+                                    </div>
+                                </label>
+								<label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value="Critical Care Medicine Specialists"
+                                        name="department">
+                                    <div class="custom-control-label">Critical Care Medicine Specialists
+                                    </div>
+                                </label>
+								<label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value="Urologists"
+                                        name="department">
+                                    <div class="custom-control-label">Urologists
+                                    </div>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value="psychologist"
+                                        name="department">
+                                    <div class="custom-control-label">psychologist
+                                    </div>
+                                </label>
+
+
+
+
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- filter-group .// -->
+                    <article class="filter-group">
+                        <header class="card-header">
+                               
+                                <h6 class="title">CONSULTATION TYPE </h6>
+                          
+                        </header>
+
+                        <div class="filter-content collapse show" id="collapse_2" style="">
+                            <div class="card-body">
+
+
+	                           <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value="Consultation From The Hospital"
+                                        name="ConsultationType">
+                                    <div class="custom-control-label">Consultation From The Hospital
+                                    </div>
+                                </label>
+								<label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value="Tele Consultation"
+                                        name="ConsultationType">
+                                    <div class="custom-control-label">Tele Consultation
+                                    </div>
+                                </label>
+								<label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value="Video Consultation"
+                                        name="ConsultationType">
+                                    <div class="custom-control-label">Video Consultation
+                                    </div>
+                                </label>
+                               
+
+
+                            </div>
+                        </div>
+
+                    </article>
+
+					{{!-- !!! --}}
+
+               <article class="filter-group">
+                        <header class="card-header">
+                               
+                                <h6 class="title">LANGUAGE SPOKEN </h6>
+                          
+                        </header>
+
+                        <div class="filter-content collapse show" id="collapse_2" style="">
+                            <div class="card-body">
+                             <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value="English"
+                                        name="vendor">
+                                    <div class="custom-control-label">English
+                                    </div>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value="Arabic"
+                                        name="vendor">
+                                    <div class="custom-control-label">Arabic
+                                    </div>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value="Hindi"
+                                        name="vendor">
+                                    <div class="custom-control-label">Hindi
+                                    </div>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value="Tamil"
+                                        name="vendor">
+                                    <div class="custom-control-label">Tamil
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                    </article>
+           
+        </div>
+        </form>
+
+</div>
+
+<div class="col-md-9">
+
+
+
+{{!-- Filter box End !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --}}
+
+
+{{!-- Doctor image section start (Speciality)  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --}}
+
+    <div class="row shuffle-wrapper portfolio-gallery" id="docImage">
+		                 {{#each DoctorData}}
+                         {{!-- {{#each DocConsultation}} --}}
+      	<div class="col-lg-4 col-sm-6 col-md-6 mb-4 shuffle-item" >
+	      	<div class="position-relative doctor-inner-box">
+		        <div class="doctor-profile">
+	               <div class="doctor-img">
+	               		<img src="/images/doctorImg/{{this.docDetails.img.[0].filename}}"  alt="doctor-image" class="img-fluid w-100">
+	               </div>
+	            </div>
+                <div class="">
+                	<h4 class="mb-0"><a href="/hospital/docSinglePage/{{this.docDetails._id}}">{{this.docDetails.name}}</a></h4>
+                	<p>{{this.docDetails.department}}</p>
+                    {{!-- <p>{{this.docDetails.ConsultationType}}</p> --}}
+					{{!-- <a href="" class="btn btn-info mr-auto" >Book Now</a> --}}
+                </div> 
+	      	</div>
+      	</div>
+    {{/each}}
+
+      
+  </div>
+  
+  </div>
+</section>
+</div>
+
+{{!-- Doctor image section End !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! --}}
+
+
+
+
+{{!-- Ajax --}}
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+{{!-- Filter Section Ajax --}}
+
+<script>
+
+        //Consultation Type
+
+$('input[name=ConsultationType]').change(function(){
+    $.ajax({
+      url:'/hospital/department-filter',
+      method:"post",
+      data:$('#filter').serialize(),
+       success:(response)=>{
+
+        console.log(response)
+        if(response.status){
+         // $('#docImage').load(window.location.href+"#docImage")
+         location.reload()
+            
+        }
+
+       }
+      
+      })
+    })
+
+// Department
+
+    $('input[name=department]').change(function(){
+    $.ajax({
+      url:'/hospital/department-filter',
+      method:"post",
+      data:$('#filter').serialize(),
+       success:(response)=>{
+
+        console.log(response)
+        if(response.status){
+        // $('#docImage').load(location.href+"#docImage")
+         location.reload()
+            
+        }
+
+       }
+      
+      })
+    })
+        
+</script>
+
+<a href="/test">dddddddclick here</a>
+
+<!-- /portfolio -->
+<section class="section cta-page">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-7">
+				<div class="cta-content">
+					<div class="divider mb-4"></div>
+					<h2 class="mb-5 text-lg">We are pleased to offer you the <span class="title-color">chance to have the healthy</span></h2>
+					<a href="appoinment.html" class="btn btn-main-2 btn-round-full">Get appoinment<i class="icofont-simple-right  ml-2"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!-- footer Start -->
+<footer class="footer section gray-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 mr-auto col-sm-6">
+				<div class="widget mb-5 mb-lg-0">
+					<div class="logo mb-4">
+						<img src="images/logo.png" alt="" class="img-fluid">
+					</div>
+					<p>Tempora dolorem voluptatum nam vero assumenda voluptate, facilis ad eos obcaecati tenetur veritatis eveniet distinctio possimus.</p>
+
+					<ul class="list-inline footer-socials mt-4">
+						<li class="list-inline-item"><a href="https://www.facebook.com/themefisher"><i class="icofont-facebook"></i></a></li>
+						<li class="list-inline-item"><a href="https://twitter.com/themefisher"><i class="icofont-twitter"></i></a></li>
+						<li class="list-inline-item"><a href="https://www.pinterest.com/themefisher/"><i class="icofont-linkedin"></i></a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-lg-2 col-md-6 col-sm-6">
+				<div class="widget mb-5 mb-lg-0">
+					<h4 class="text-capitalize mb-3">Department</h4>
+					<div class="divider mb-4"></div>
+
+					<ul class="list-unstyled footer-menu lh-35">
+						<li><a href="#">Surgery </a></li>
+						<li><a href="#">Wome's Health</a></li>
+						<li><a href="#">Radiology</a></li>
+						<li><a href="#">Cardioc</a></li>
+						<li><a href="#">Medicine</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-lg-2 col-md-6 col-sm-6">
+				<div class="widget mb-5 mb-lg-0">
+					<h4 class="text-capitalize mb-3">Support</h4>
+					<div class="divider mb-4"></div>
+
+					<ul class="list-unstyled footer-menu lh-35">
+						<li><a href="#">Terms & Conditions</a></li>
+						<li><a href="#">Privacy Policy</a></li>
+						<li><a href="#">Company Support </a></li>
+						<li><a href="#">FAQuestions</a></li>
+						<li><a href="#">Company Licence</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-lg-3 col-md-6 col-sm-6">
+				<div class="widget widget-contact mb-5 mb-lg-0">
+					<h4 class="text-capitalize mb-3">Get in Touch</h4>
+					<div class="divider mb-4"></div>
+
+					<div class="footer-contact-block mb-4">
+						<div class="icon d-flex align-items-center">
+							<i class="icofont-email mr-3"></i>
+							<span class="h6 mb-0">Support Available for 24/7</span>
+						</div>
+						<h4 class="mt-2"><a href="tel:+23-345-67890">Support@email.com</a></h4>
+					</div>
+
+					<div class="footer-contact-block">
+						<div class="icon d-flex align-items-center">
+							<i class="icofont-support mr-3"></i>
+							<span class="h6 mb-0">Mon to Fri : 08:30 - 18:00</span>
+						</div>
+						<h4 class="mt-2"><a href="tel:+23-345-67890">+23-456-6588</a></h4>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer-btm py-4 mt-5">
+			<div class="row align-items-center justify-content-between">
+				<div class="col-lg-6">
+					<div class="copyright">
+						&copy; Copyright Reserved to <span class="text-color">Novena</span> by <a href="https://themefisher.com/" target="_blank">Themefisher</a>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="subscribe-form text-lg-right mt-5 mt-lg-0">
+						<form action="#" class="subscribe">
+							<input type="text" class="form-control" placeholder="Your Email address">
+							<a href="#" class="btn btn-main-2 btn-round-full">Subscribe</a>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-4">
+					<a class="backtop js-scroll-trigger" href="#top">
+						<i class="icofont-long-arrow-up"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+   
+
+  </body>

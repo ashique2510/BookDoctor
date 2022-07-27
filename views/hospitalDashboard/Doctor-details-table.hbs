@@ -1,0 +1,67 @@
+
+
+<section>
+    <div class="container" id="admin-table-container" >
+<div><h3 class="mt-5 mb-5 ">Doctors Details </h3></div>
+
+
+<div class="row">  {{!-- (18) --}}
+
+
+
+</div>
+
+{{!-- <table class="table table-bordered"> --}}
+
+        <table class="table table-bordered mt-5 display" id="userSearch">  
+                  {{!-- <table class="table mt-5 display" id="userSearch">   --}}
+
+
+
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">No:</th>
+      <th scope="col">Doctor</th>
+      <th scope="col">Departments</th>
+      <th scope="col">Experiance</th>
+      <th scope="col">State</th>
+      <th scope="col">City</th>
+      <th scope="col">Address</th>
+      {{!-- <th scope="col">Pincode</th> --}}
+      <th scope="col">DOB</th>
+      <th scope="col">Email</th>
+
+    </tr>
+  </thead>
+
+
+  <tbody>
+
+{{!--(17) loop --}}
+
+{{#each DoctorData}}
+
+    <tr>
+      <th scope="row">{{@index}}</th>
+      <td>{{this.name}}</td>
+      <td>{{this.department}}</td>
+      <td>{{this.experiance}}</td>
+      <td>{{this.state}}</td>
+      <td>{{this.city}}</td>
+      <td>{{this.address}}</td>
+      {{!-- <td>{{this.pincode}}</td> --}}
+      <td>{{this.birth_date}}</td>
+      <td>{{this.email}}</td>
+      
+    </tr>
+
+
+{{/each}}
+
+  </tbody>
+</table>
+
+   </div>
+</section>
+
+
